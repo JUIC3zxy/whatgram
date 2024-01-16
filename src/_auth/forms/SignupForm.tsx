@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/shared/Loader";
 import { SignupValidation } from "@/lib/validation";
+import { createUserAccount } from "@/lib/appwrite/api";
 
 
 const SignupForm = () => {
@@ -29,6 +30,11 @@ const SignupForm = () => {
       password: "",
     },
   });
+
+    async function onSubmit(values: z.infer<typeof SignupValidation>) {
+      const newUser = await createUserAccount(values)
+      console.log(newUser)
+    }
 
 
   return (
@@ -45,6 +51,7 @@ const SignupForm = () => {
 
         <form
           className="flex flex-col gap-5 w-full mt-4"
+          onSubmit={form.handleSubmit(onSubmit)}
         >
           <FormField
             control={form.control}
