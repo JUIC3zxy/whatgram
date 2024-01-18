@@ -5,7 +5,8 @@ import SigninForm from "../src/_auth/forms/SigninForm"
 import SignupForm from "../src/_auth/forms/SignupForm"
 import AuthLayout from "../src/_auth/AuthLayout"
 import RootLayout from "../src/_root/RootLayout"
-import {Home} from "../src/_root/pages"
+import { Home } from "../src/_root/pages"
+import { Toaster } from "./components/ui/toaster";
 
 
 export default function App() {
@@ -25,7 +26,8 @@ export default function App() {
 
 
 
-        </Routes>
+            </Routes>
+            <Toaster />
         </main>
 
 
